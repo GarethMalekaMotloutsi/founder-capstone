@@ -1,33 +1,80 @@
-# Founder Capstone — Starter
+# Founder Capstone
 
-**Read `BRIEF.md` before anything else.** The way you respond to the brief is
-most of the mark. Then read `PRESENTATION-GUIDE.md` for the Loom.
+## Student Information
+
+**Student:** Gareth Maleka Motloutsi
+
+## Live Deployment
+
+https://founder-capstone-nine.vercel.app/
+
+## GitHub Repository
+
+https://github.com/GarethMalekaMotloutsi/founder-capstone
+
+## Project Overview
+
+This project is a React and TypeScript marketplace application built as part of the Melsoft Academy Founder Capstone assessment.
+
+The application allows users to:
+
+- Browse available items
+- Search for items
+- Filter items by category
+- Filter items by price (Free/Paid)
+- View item details
+- Complete a simple two-step booking flow
+- Sign in through a basic authentication page
+
+The application was developed using:
+
+- React
+- TypeScript
+- Vite
+- React Router
 
 ## Setup
+
+Clone the repository:
+
+```bash
+git clone https://github.com/GarethMalekaMotloutsi/founder-capstone.git
+```
+
+Install dependencies:
+
 ```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
-Type-check anytime with `npm run typecheck` (strict mode, no `any`).
 
-## What's here
-- `src/data/types.ts` — the domain model (a data contract you don't control).
-- `src/data/items.ts` — mock items with deliberate real-world messiness.
-- `src/App.tsx` — an empty shell. Delete it and build the product.
+Create a production build:
 
-## What you deliver (all required — see BRIEF.md for detail)
-1. The working app, **deployed to a live public URL** (link in this README).
-2. `FOUNDER-RESPONSE.md` — your professional pushback to Thabo.
-3. `DECISION-LOG.md` — min. 8 real decisions with tradeoffs.
-4. `AI-USAGE.md` — min. 3 AI moments, incl. one where AI was wrong and you caught it.
-5. A Loom walkthrough (see PRESENTATION-GUIDE.md).
+```bash
+npm run build
+```
 
-## Rules
-- TypeScript strict. No `any` / `as any` / `@ts-ignore` to dodge a type.
-- Runs from a clean clone. Test in a fresh folder before submitting.
-- Deployed to a live public URL (Vercel/Netlify/GitHub Pages/Cloudflare) with the
-  link in this README. Test the live site before submitting.
-- Commit as you go. Public repo.
+## Project Structure
 
-Templates for the three markdown deliverables are in this repo as
-`FOUNDER-RESPONSE.md`, `DECISION-LOG.md`, and `AI-USAGE.md` — fill them in.
+- `src/data` – Mock data and TypeScript models
+- `src/pages` – Application pages
+- `src/components` – Reusable components
+- `src/hooks` – Custom hooks
+- `src/utils` – Utility functions
+
+## Documentation
+
+This repository also includes:
+
+- `FOUNDER-RESPONSE.md`
+- `DECISION-LOG.md`
+- `AI-USAGE.md`
+
+## Notes
+
+The project was built using strict TypeScript with no use of `any`, following the assessment requirements. The focus was on delivering a functional Minimum Viable Product (MVP) within the sprint by prioritising the core marketplace experience.
