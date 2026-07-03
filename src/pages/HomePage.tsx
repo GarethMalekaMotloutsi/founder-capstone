@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchItems } from "../data/items";
 import type { Category, Item } from "../data/types";
+import "../styles/HomePage.css";
+
 
 export default function HomePage() {
   const [items, setItems] = useState<Item[]>([]);
@@ -36,19 +39,32 @@ export default function HomePage() {
   }, [items, search, category, price]);
 
   return (
-    <main style={{ maxWidth: 1100, margin: "0 auto", padding: 20 }}>
-      <h1>Neighbourhood Marketplace</h1>
+    <main className="home-page">
 
-      <p>Borrow instead of buying.</p>
+<header className="navbar">
+  <div className="logo">
+    <span>🏡</span>
+    <h2>ShareSpace</h2>
+  </div>
 
-      <div
-        style={{
-          display: "flex",
-          gap: 12,
-          marginBottom: 20,
-          flexWrap: "wrap",
-        }}
-      >
+  <nav>
+    <Link to="/">Home</Link>
+    <Link to="/login">Sign In</Link>
+  </nav>
+</header>
+
+<section className="hero">
+  <h1>Borrow Smarter. Share Locally.</h1>
+
+  <p>
+    Find tools, equipment, and everyday items from trusted people in your community.
+    Save money, reduce waste, and make the most of what your neighbourhood has to offer.
+  </p>
+</section>
+
+
+<div className="search-bar">
+  
         <input
           placeholder="Search items..."
           value={search}
@@ -82,13 +98,8 @@ export default function HomePage() {
         </select>
       </div>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
-          gap: 20,
-        }}
-      >
+<div className="items-grid">
+
         {filteredItems.map((item) => {
           const image =
             item.photoUrls[0] ??
@@ -98,53 +109,53 @@ export default function HomePage() {
             item.price === null || item.price.amountCents === 0;
 
           return (
-            <div
-              key={item.id}
-              style={{
-                border: "1px solid #ddd",
-                borderRadius: 12,
-                overflow: "hidden",
-              }}
-            >
-              <img
-                src={image}
-                alt={item.title}
-                style={{
-                  width: "100%",
-                  height: 180,
-                  objectFit: "cover",
-                }}
-              />
+<div key={item.id} className="item-card">
 
-              <div style={{ padding: 16 }}>
+<img
+  src={image}
+  alt={item.title}
+  className="item-image"
+/>
+
+              <div className="item-content">
                 <h3>{item.title}</h3>
+<span className="category-badge">
+  {item.category.replace("-", " ")}
+</span>
 
-                <p>{item.owner.displayName}</p>
+<p className="owner-name">
+  👤 {item.owner.displayName}
+</p>
 
-                <p>
-                  {item.owner.rating === null
-                    ? "No ratings yet"
-                    : `${item.owner.rating} ⭐`}
-                </p>
+<p className="item-meta">
+  ⭐{" "}
+  {item.owner.rating === null
+    ? "No ratings yet"
+    : `${item.owner.rating} (${item.owner.ratingCount} reviews)`}
+</p>
 
-                <p>
-                  {item.distanceKm === null
-                    ? "Distance unavailable"
-                    : `${item.distanceKm} km away`}
-                </p>
+<p className="item-meta">
+  📍{" "}
+  {item.distanceKm === null
+    ? "Distance unavailable"
+    : `${item.distanceKm} km away`}
+</p>
 
-                <strong>
-                  {free
-                    ? "FREE"
-                    : `R${(item.price!.amountCents / 100).toFixed(2)}/${item.price!.period}`}
-                </strong>
+<div className="price-badge">
+  {free
+    ? "🆓 Free to Borrow"
+    : `💰 R${(item.price!.amountCents / 100).toFixed(2)} / ${item.price!.period}`}
+</div>
 
                 <br />
                 <br />
 
-                <a href={`/item/${item.id}`}>
-                  View Item
-                </a>
+<Link
+  to={`/item/${item.id}`}
+  className="details-button"
+>
+  View Details
+</Link>
               </div>
             </div>
           );
