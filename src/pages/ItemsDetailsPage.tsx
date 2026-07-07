@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { ITEMS } from "../data/items";
+import "../styles/ItemsDetailsPage.css";
 
 export default function ItemsDetailsPage() {
   const { id } = useParams();
@@ -18,48 +19,47 @@ export default function ItemsDetailsPage() {
     item.price === null || item.price.amountCents === 0;
 
   return (
-    <main style={{ maxWidth: 900, margin: "0 auto", padding: 20 }}>
+    <main className="details-page">
+
       <Link to="/">← Back</Link>
 
-      <img
-        src={image}
-        alt={item.title}
-        style={{
-          width: "100%",
-          maxHeight: 450,
-          objectFit: "cover",
-          borderRadius: 10,
-          marginTop: 20,
-        }}
-      />
+<img
+  src={image}
+  alt={item.title}
+  className="details-image"
+/>
 
-      <h1>{item.title}</h1>
+      <h1 className="details-title">{item.title}</h1>
+
+<span className="category-badge">
+  {item.category.replace("-", " ")}
+</span>
 
       <p>{item.description}</p>
 
-      <p>
-        <strong>Owner:</strong> {item.owner.displayName}
-      </p>
+<p className="details-info">
+  👤 <strong>{item.owner.displayName}</strong>
+</p>
 
-      <p>
-        <strong>Rating:</strong>{" "}
+<p className="details-info">
+  ⭐{" "}
         {item.owner.rating === null
           ? "No ratings yet"
           : `${item.owner.rating} ⭐`}
       </p>
 
-      <p>
-        <strong>Distance:</strong>{" "}
+<p className="details-info">
+  📍{" "}
         {item.distanceKm === null
           ? "Unavailable"
           : `${item.distanceKm} km`}
       </p>
 
-      <h2>
+      <div className="details-price">
         {free
           ? "FREE"
           : `R${(item.price!.amountCents / 100).toFixed(2)}/${item.price!.period}`}
-      </h2>
+      </div>
 
       {item.status === "available" ? (
         <Link to={`/booking/${item.id}`}>
