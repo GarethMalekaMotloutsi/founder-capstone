@@ -48,7 +48,7 @@ The project focuses on creating reusable React components, maintaining strong Ty
 
 ---
 
-### Responsive Layout
+### Responsive Search Funcionality 
 
 ![Responsive](images/responsive.png)
 
