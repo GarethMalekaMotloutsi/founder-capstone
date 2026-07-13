@@ -38,19 +38,19 @@ The project focuses on creating reusable React components, maintaining strong Ty
 
 ### Home Page
 
-![Home Page](images/homepage.png)
+![Home Page](screenshots/home.png)
 
 ---
 
 ### Product Details
 
-![Product Details](images/details.png)
+![Product Details](screenshots/product_details.png)
 
 ---
 
-### Responsive Layout
+### Responsive Search Funcionality 
 
-![Responsive](images/responsive.png)
+![Responsive](screenshots/search.png)
 
 ---
 
