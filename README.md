@@ -34,8 +34,6 @@ The project focuses on creating reusable React components, maintaining strong Ty
 
 ## 🖼️ Application Preview
 
-> **Add screenshots here**
-
 ### Home Page
 
 ![Home Page](screenshots/home.png)
